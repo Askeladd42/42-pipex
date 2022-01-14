@@ -6,11 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 11:38:00 by plam              #+#    #+#             */
-/*   Updated: 2021/01/07 08:41:51 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/14 12:46:16 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
 static int	count_prints(char const *s, char c)
 {
