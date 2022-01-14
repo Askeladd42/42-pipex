@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:04:23 by plam              #+#    #+#             */
-/*   Updated: 2022/01/14 15:18:20 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/14 16:10:09 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,8 @@ void	pipex(int f1, int f2, char *cmd1, char *cmd2)
 		return (perror("Fork: "));
 	if (!chd)
 		parent_process(f2, cmd2);
+	close(end[0]);
+	close(end[1]);
+	waitpid(prt, &status, 0);
+	waitpid(chd, &status, 0);
 }
