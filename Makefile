@@ -6,11 +6,16 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/03 09:32:58 by plam             ###   ########.fr        #
+#    Updated: 2022/01/14 12:44:53 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		+=	srcs/main.c
+SRCS		+=	utils/ft_split.c
+				utils/ft_strjoin.c
+
+SRCS		+=	parsing/
+
+SRCS		+=	main.c
 
 MAKE		=	/bin/make
 
