@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:09 by plam              #+#    #+#             */
-/*   Updated: 2022/01/03 09:35:40 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/14 12:17:35 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(int ac, char **av)
+void	pipex(int f1, int f2, char *cmd1, char *cmd2)
 {
 
 }
