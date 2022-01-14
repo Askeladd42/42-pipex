@@ -6,7 +6,7 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/14 12:44:53 by plam             ###   ########.fr        #
+#    Updated: 2022/01/14 12:48:51 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,9 @@ OBJS_BONUS	= 	$(addprefix $(PATH), $(SRCS_BONUS:.c=.o))
 
 HEADERS		+=	headers/
 
-NAME		=	push_swap
+NAME		=	pipex
 
-NAME_BONUS	=	checker
+NAME_BONUS	=	pipex
 
 RM			=	/bin/rm -f
 
