@@ -6,17 +6,22 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/14 15:05:29 by plam             ###   ########.fr        #
+#    Updated: 2022/01/14 16:31:57 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		+=	utils/ft_split.c
-				utils/ft_strjoin.c
+SRCS		+=	utils/ft_split.c\
+				utils/ft_strlen.c\
+				utils/ft_strdup.c\
+				utils/ft_strjoin.c\
+				utils/ft_strncmp.c
 
-SRCS		+=	parsing/
+SRCS		+=	parsing/child_proc.c\
+				parsing/parent_proc.c\
+				parsing/path_parsing.c
 
+				main.c\
 SRCS		+=	pipex.c
-				main.c
 
 MAKE		=	/bin/make
 
