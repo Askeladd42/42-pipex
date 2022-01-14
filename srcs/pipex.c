@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/14 15:04:01 by plam             ###   ########.fr       */
+/*   Created: 2022/01/14 15:04:23 by plam              #+#    #+#             */
+/*   Updated: 2022/01/14 15:04:53 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "pipex.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <fcntl.h>
-# include <sys/wait.h>
+void	pipex(int f1, int f2, char *cmd1, char *cmd2)
+{
+	int		end[2];
+	pid_t	prt;
 
-char	**ft_split(char const *s, char c);
-char	*ft_strjoin(char const *s1, char const *s2);
-
-void	child_process(int f1, char *cmd1);
-void	parent_process(int f2, char *cmd2);
-
-void	pipex(int f1, int f2, char *cmd1, char *cmd2);
-
-#endif
+	pipe(end);
+	prt = fork();
+	if (prt < 0)
+		return (perror("Fork: "));
+	if (!prt)
+		child_process(f1, cmd1);
+	else
+		parent_process(f2, cmd2);
+}
