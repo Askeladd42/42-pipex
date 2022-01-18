@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/14 16:28:08 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/18 15:47:46 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,17 @@
 # include <fcntl.h>
 # include <sys/wait.h>
 # include <sys/errno.h>
+# include <stdio.h>
 
 # define ERR -1
 # define IN 0
 # define OUT 1
+
+typedef struct pipex
+{
+	int		ac;
+	char	**av;
+}				t_ppx;
 
 size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
