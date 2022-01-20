@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/20 11:37:46 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/20 15:10:58 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 void	init_ppx(t_ppx *ppx, int ac, char **av, char **envp);
 void	free_ppx(t_ppx *ppx);
+
+int		cmd_verification(char *cmd);
+int		cmd_exec(t_ppx *ppx, char *cmd);
 
 int		child_process(int f1, char *cmd1);
 int		parent_process(int f2, char *cmd2);
