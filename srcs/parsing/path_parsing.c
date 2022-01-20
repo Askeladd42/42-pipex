@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:06:01 by plam              #+#    #+#             */
-/*   Updated: 2022/01/20 15:35:51 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/20 15:41:21 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	path_parsing(char *path, t_ppx *ppx)
 	char *cmd;
 	int i;
 
-	PATH_from_envp = ft_substr(ppx->envp);
+	PATH_from_envp = ft_substr(ppx->envp, "infile"); //temporary, not sure about this one
 	mypaths = ft_split(PATH_from_envp, ":");
 	mycmdargs = ft_split(ppx->av[2], " ");// in your child or parent process;
 	i = -1;

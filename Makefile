@@ -6,7 +6,7 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/14 16:31:57 by plam             ###   ########.fr        #
+#    Updated: 2022/01/20 15:48:39 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,16 @@ SRCS		+=	parsing/child_proc.c\
 				parsing/parent_proc.c\
 				parsing/path_parsing.c
 
-				main.c\
-SRCS		+=	pipex.c
+SRCS		+=	init/init_ppx.c
+
+SRCS		+=	free/free_ppx.c
+
+SRCS		+=	cmd_funcs/cmd_exec.c\
+				cmd_funcs/cmd_verification.c
+
+
+SRCS		+=	pipex.c\
+				main.c
 
 MAKE		=	/bin/make
 
