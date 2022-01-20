@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:48:03 by plam              #+#    #+#             */
-/*   Updated: 2022/01/20 15:03:20 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/20 15:14:01 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	cmd_verification(char *cmd)
 
 	ret = access(cmd, X_OK);
 	if (ret == -1)
-		perror("cmd_line : ");
+		perror("cmd line : ");
 	return (ret);
 }
