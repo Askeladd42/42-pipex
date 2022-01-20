@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 10:18:50 by plam              #+#    #+#             */
-/*   Updated: 2022/01/20 10:20:24 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/20 11:26:17 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	init_ppx(t_ppx *ppx)
+void	init_ppx(t_ppx *ppx, int ac, char **av)
 {
 	ppx->ac = ac;
 	ppx->av = av;
