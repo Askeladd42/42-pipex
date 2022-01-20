@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_ppx.c                                         :+:      :+:    :+:   */
+/*   exec_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 10:18:50 by plam              #+#    #+#             */
-/*   Updated: 2022/01/20 11:31:52 by plam             ###   ########.fr       */
+/*   Created: 2022/01/20 11:36:18 by plam              #+#    #+#             */
+/*   Updated: 2022/01/20 11:36:55 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	init_ppx(t_ppx *ppx, int ac, char **av, char **envp)
+int	exec_cmd(t_ppx *ppx)
 {
-	ppx->ac = ac;
-	ppx->av = av;
-	ppx->envp = envp;
-	ppx->cmd_cnt = 0;
-	ppx->infile = 0;
-	ppx->outfile = 0;
-	ppx->pipe = NULL;
+	
 }
