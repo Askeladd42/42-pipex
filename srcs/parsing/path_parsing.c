@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:06:01 by plam              #+#    #+#             */
-/*   Updated: 2022/01/20 14:46:34 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/20 15:35:51 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	path_parsing(char *path, t_ppx *ppx)
 	int i;
 
 	PATH_from_envp = ft_substr(ppx->envp);
-	mypaths = ft_split(PATH_from_envp, ":"); // see section 4 for a small note[0]
-	mycmdargs = ft_split(ppx->av[2], " ");// in your child or parent processint  i;
+	mypaths = ft_split(PATH_from_envp, ":");
+	mycmdargs = ft_split(ppx->av[2], " ");// in your child or parent process;
 	i = -1;
 	while (mypaths[++i])
 	{
-		cmd = ft_strjoin(mypaths[i], ppx->av[2]); // protect your ft_join
-		execve(cmd, mycmdargs, ppx->envp); // if execve succeeds, it exits
+		cmd = ft_strjoin(mypaths[i], ppx->av[2]); // protect your ft_strjoin
+		execve(cmd, mycmdargs, ppx->envp); // if execve succeeds, it exits -> cmd_exec
 		// perror("Error"); <- add perror to debug
 		free(cmd); // if execve fails, we free and we try a new path
 	}

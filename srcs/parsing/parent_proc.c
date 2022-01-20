@@ -6,11 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:47:36 by plam              #+#    #+#             */
-/*   Updated: 2022/01/14 16:04:43 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/20 15:37:35 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+//will change if not used maybe
 
 int	parent_process(int f2, char *cmd2)
 {
