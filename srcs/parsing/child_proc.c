@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:47:52 by plam              #+#    #+#             */
-/*   Updated: 2022/01/24 12:37:39 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/24 13:38:23 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	child_process(int f1, char *cmd1)
+/*int	child_process(int f1, char *cmd1)
 {
 	if (f1 < 0)		//protection if dup2() < 0
 		return (ERR);
@@ -22,6 +22,7 @@ int	child_process(int f1, char *cmd1)
 	//close(end[0]); always close the unused pipes ! (avoid having other pipes open to make them finish their process)
 	close(f1);
 }
+*/
 
 void	child_process(char **argv, char **envp, t_ppx *pip)
 {
