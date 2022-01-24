@@ -6,11 +6,17 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:34:03 by plam              #+#    #+#             */
-/*   Updated: 2022/01/24 13:17:22 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/24 23:59:00 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	ex_perror(char *error, int code)
+{
+	perror(error);
+	exit(code);
+}
 
 void	error(char *s, char *argv)
 {
