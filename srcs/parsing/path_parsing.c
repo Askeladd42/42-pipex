@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:06:01 by plam              #+#    #+#             */
-/*   Updated: 2022/01/20 15:41:21 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/24 13:14:17 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,32 @@ int	path_parsing(char *path, t_ppx *ppx)
 		free(cmd); // if execve fails, we free and we try a new path
 	}
 	return (EXIT_FAILURE);
+}
+
+char	*path(char *cmd, char **envp)
+{
+	char	**paths;
+	char	*path;
+	int		i;
+	char	*part_path;
+
+	i = 0;
+	while (ft_strnstr(envp[i], "PATH", 4) == 0)
+		i++;
+	paths = ft_split(envp[i] + 5, ':');
+	i = 0;
+	while (paths[i])
+	{
+		part_path = ft_strjoin(paths[i], "/");
+		path = ft_strjoin(part_path, cmd);
+		free(part_path);
+		if (access(path, F_OK) == 0)
+		{
+			free_tab(paths);
+			return (path);
+		}
+		i++;
+	}
+	free_tab(paths);
+	return (0);
 }

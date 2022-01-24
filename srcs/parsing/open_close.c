@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_ppx.c                                         :+:      :+:    :+:   */
+/*   open_close.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 10:18:50 by plam              #+#    #+#             */
-/*   Updated: 2022/01/24 13:04:54 by plam             ###   ########.fr       */
+/*   Created: 2022/01/24 13:13:43 by plam              #+#    #+#             */
+/*   Updated: 2022/01/24 13:16:05 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	init_ppx(t_ppx *ppx, int ac, char **av, char **envp)
+int	close_file(int file)
 {
-	ppx->ac = ac;
-	ppx->av = av;
-	ppx->envp = envp;
-	ppx->cmd_cnt = ac - 3;
-	ppx->infile = 0;
-	ppx->outfile = 0;
-	ppx->pipe = NULL;
-	open_file(ppx);
+	close(file);
 	return (0);
+}
+
+
+int	open_file(t_ppx *ppx)
+{
+	int	file;
+
+	file = 0;
+	if (i == 1)
+		file = open(ppx->av, O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	else if (i == 2)
+		file = open(ppx->av, O_RDONLY, 0777);
+	if (file == -1)
+		error("open problem", "");
+	return (file);
 }

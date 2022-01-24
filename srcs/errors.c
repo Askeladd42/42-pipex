@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_ppx.c                                         :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 10:18:50 by plam              #+#    #+#             */
-/*   Updated: 2022/01/24 13:04:54 by plam             ###   ########.fr       */
+/*   Created: 2022/01/24 12:34:03 by plam              #+#    #+#             */
+/*   Updated: 2022/01/24 12:58:58 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	init_ppx(t_ppx *ppx, int ac, char **av, char **envp)
+int	open_file(char *argv, int i)
 {
-	ppx->ac = ac;
-	ppx->av = av;
-	ppx->envp = envp;
-	ppx->cmd_cnt = ac - 3;
-	ppx->infile = 0;
-	ppx->outfile = 0;
-	ppx->pipe = NULL;
-	open_file(ppx);
-	return (0);
+	int	file;
+
+	file = 0;
+	if (i == 1)
+		file = open(argv, O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	else if (i == 2)
+		file = open(argv, O_RDONLY, 0777);
+	if (file == -1)
+		error("open problem", "");
+	return (file);
+}
+
+void	error(char *s, char *argv)
+{
+	ft_putstr_fd(s, 2);
+	ft_putstr_fd(argv, 2);
+	ft_putstr_fd("\n", 2);
+	exit(1);
+}
+
+void	arg_error(int err)
+{
+	ft_putstr("Arg error !");
+	exit(0);
 }

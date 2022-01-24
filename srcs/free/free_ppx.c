@@ -6,11 +6,22 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 11:32:18 by plam              #+#    #+#             */
-/*   Updated: 2022/01/20 11:51:45 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/24 12:36:43 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	*free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
+	return (NULL);
+}
 
 void	free_ppx(t_ppx *ppx)
 {

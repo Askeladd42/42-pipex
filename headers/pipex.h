@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/20 15:10:58 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/24 13:04:43 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,12 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
-void	init_ppx(t_ppx *ppx, int ac, char **av, char **envp);
+int		open_file(t_ppx *ppx);
+int		init_ppx(t_ppx *ppx, int ac, char **av, char **envp);
 void	free_ppx(t_ppx *ppx);
+void	arg_error(int err);
+void	error(char *s, char *argv);
+char	*path(char *cmd, char **envp);
 
 int		cmd_verification(char *cmd);
 int		cmd_exec(t_ppx *ppx, char *cmd);
