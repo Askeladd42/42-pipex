@@ -6,7 +6,7 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/25 16:42:36 by plam             ###   ########.fr        #
+#    Updated: 2022/01/25 17:21:09 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SRCS		+=	utils/ft_split.c\
 				utils/ft_strjoin.c\
 				utils/ft_strncmp.c
 
-SRCS		+=	parsing/child_proc.c\
+SRCS		+=	parsing/open_close.c\
+				parsing/child_proc.c\
 				parsing/parent_proc.c\
 				parsing/path_parsing.c
 
@@ -30,8 +31,7 @@ SRCS		+=	cmd_funcs/cmd_exec.c\
 				cmd_funcs/cmd_verification.c
 
 
-SRCS		+=	open_close.c\
-				errors.c\
+SRCS		+=	errors.c\
 				pipex.c\
 				main.c
 
