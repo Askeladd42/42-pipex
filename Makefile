@@ -6,7 +6,7 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/20 15:48:39 by plam             ###   ########.fr        #
+#    Updated: 2022/01/25 16:42:36 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,15 @@ SRCS		+=	init/init_ppx.c
 
 SRCS		+=	free/free_ppx.c
 
+SRCS		+=	
+
 SRCS		+=	cmd_funcs/cmd_exec.c\
 				cmd_funcs/cmd_verification.c
 
 
-SRCS		+=	pipex.c\
+SRCS		+=	open_close.c\
+				errors.c\
+				pipex.c\
 				main.c
 
 MAKE		=	/bin/make
