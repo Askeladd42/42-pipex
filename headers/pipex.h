@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/24 23:59:24 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/25 16:40:37 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char	*ft_strdup(const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int		open_file(t_ppx *ppx);
+int		close_file(t_ppx *ppx);
 int		init_ppx(t_ppx *ppx, int ac, char **av, char **envp);
 void	free_ppx(t_ppx *ppx);
 void	ex_perror(char *error, int code);
