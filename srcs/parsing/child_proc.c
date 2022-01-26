@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:47:52 by plam              #+#    #+#             */
-/*   Updated: 2022/01/24 13:38:23 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/26 12:50:49 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@
 }
 */
 
-void	child_process(char **argv, char **envp, t_ppx *pip)
+void	child_process(char **av, char **envp, t_ppx *ppx)
 {
 	int		filein;
 
-	filein = open_file(argv[1], 2);
-	dup2(pip->p[WRITE_END], STDOUT_FILENO);
-	close(pip->p[WRITE_END]);
+	filein = open_file(ppx);
+	dup2(ppx->pipe[WRITE_END], STDOUT_FILENO);
+	close(ppx->pipe[WRITE_END]);
 	dup2(filein, STDIN_FILENO);
-	close(pip->p[READ_END]);
-	exec(argv[2], envp);
+	close(ppx->pipe[READ_END]);
+	cmd_exec(av[2], envp);
 }

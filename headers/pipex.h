@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/26 12:35:49 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/26 12:51:44 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_putstr_fd(char *s, int fd);
 
 int		open_file(t_ppx *ppx);
 int		close_file(t_ppx *ppx);
@@ -59,8 +60,13 @@ char	*path(char *cmd, char **envp);
 int		cmd_verification(char *cmd);
 int		cmd_exec(t_ppx *ppx, char *cmd);
 
-int		child_process(int f1, char *cmd1);
+/*int		child_process(int f1, char *cmd1);
 int		parent_process(int f2, char *cmd2);
+*/
+
+void	child_process(char **av, char **envp, t_ppx *ppx);
+void	parent_process(char **av, char **envp, t_ppx *ppx);
+
 
 void	pipex(int f1, int f2, char *cmd1, char *cmd2);
 
