@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:13:43 by plam              #+#    #+#             */
-/*   Updated: 2022/01/25 00:10:48 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/26 12:35:14 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ int	close_file(t_ppx *ppx)
 	return (0);
 }
 
+int	exit_ppx(t_ppx *ppx)
+{
+	close_file(ppx);
+	return (0);
+}
 
 int	open_file(t_ppx *ppx)
 {

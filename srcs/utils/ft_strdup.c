@@ -6,11 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:29:49 by plam              #+#    #+#             */
-/*   Updated: 2021/01/07 08:45:23 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/26 12:40:43 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
 char	*ft_strdup(const char *s)
 {

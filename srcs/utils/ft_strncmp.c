@@ -6,11 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:17:05 by plam              #+#    #+#             */
-/*   Updated: 2019/10/24 13:11:23 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/26 12:41:01 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
