@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 12:34:03 by plam              #+#    #+#             */
-/*   Updated: 2022/01/26 01:02:30 by plam             ###   ########.fr       */
+/*   Created: 2019/10/07 14:00:37 by plam              #+#    #+#             */
+/*   Updated: 2022/01/26 00:57:45 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	exit_perror(char *error, int code)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	perror(error);
-	exit(code);
-}
+	size_t	i;
+	size_t	j;
 
-void	ex_perror(char **cmd, char *error, int code, t_ppx *ppx)
-{
-	ft_strlcpy(ppx->cmd_cnt, cmd, ft_strlen(*cmd) + 1);			//à corriger
-	exit_ppx();													//à créer
-	exit_perror(error, code);
+	i = 0;
+	j = ft_strlen(src);
+	if (dstsize == 0)
+		return (j);
+	while (src[i] && i < dstsize - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (j);
 }
