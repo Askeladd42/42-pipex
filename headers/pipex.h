@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/27 00:41:08 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/27 00:45:11 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,8 @@ char	*path(char *cmd, char **envp);
 int		cmd_verification(char *cmd);
 int		cmd_exec(t_ppx *ppx, char *cmd);
 
-/*int		child_process(int f1, char *cmd1);
-int		parent_process(int f2, char *cmd2);
-*/
-
 void	child_process(char **av, char **envp, t_ppx *ppx);
 void	parent_process(char **av, char **envp, t_ppx *ppx);
-
 
 void	pipex(int f1, int f2, char *cmd1, char *cmd2);
 
