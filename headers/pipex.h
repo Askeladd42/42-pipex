@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/26 00:58:14 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/26 12:24:00 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct pipex
 	int		infile;
 	int		outfile;
 	int		cmd_cnt;
+	char	*err_str;
 }				t_ppx;
 
 size_t	ft_strlen(const char *s);
@@ -47,8 +48,10 @@ int		open_file(t_ppx *ppx);
 int		close_file(t_ppx *ppx);
 int		init_ppx(t_ppx *ppx, int ac, char **av, char **envp);
 void	free_ppx(t_ppx *ppx);
+
 void	exit_perror(char *error, int code);
 void	ex_perror(char **cmd, char *error, int code, t_ppx *ppx);
+void	dup2_verif(int fd1, int fd2, char **cmd, t_ppx *ppx);
 void	error(char *s, char *argv);
 char	*path(char *cmd, char **envp);
 
