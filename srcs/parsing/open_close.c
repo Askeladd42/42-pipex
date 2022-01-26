@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:13:43 by plam              #+#    #+#             */
-/*   Updated: 2022/01/26 12:45:11 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/27 00:40:41 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,16 @@ int	exit_ppx(t_ppx *ppx)
 	return (0);
 }
 
-int	open_file(t_ppx *ppx)
+int	open_file(char *file, int type)
 {
-	ppx->infile = open(ppx->av[1], O_RDONLY);
-	if (ppx->infile == -1)
-	{
-		ft_putstr_fd("0\n", ppx->outfile);
-		exit_perror(ppx->av[1], 0);
-	}
-	ppx->outfile = open(ppx->av[ppx->ac - 1],
-				O_CREAT | O_WRONLY | O_TRUNC, 0777);
-	if (ppx->outfile == -1)
-		exit_perror(ppx->av[ppx->ac - 1], ppx->infile);
-	return (0);
+	int	fd;
+
+	fd = 0;
+	if (type == 1)
+		fd = open(file, O_WRONLY | O_CREAT| O_TRUNC, 0777);
+	else if (type == 2)
+		fd = open(file, O_RDONLY, 0777);
+	if (fd == -1)
+		error("Can't open a file", "");
+	return (fd);
 }

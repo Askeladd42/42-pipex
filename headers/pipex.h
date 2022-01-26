@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/26 12:51:44 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/27 00:41:08 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <stdio.h>
 
 # define ERR -1
-# define IN 0
-# define OUT 1
+# define W_END 0
+# define R_END 1
 
 typedef struct pipex
 {
@@ -34,7 +34,6 @@ typedef struct pipex
 	int		infile;
 	int		outfile;
 	int		cmd_cnt;
-	char	*err_str;
 }				t_ppx;
 
 size_t	ft_strlen(const char *s);
@@ -45,9 +44,9 @@ char	*ft_strdup(const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *s, int fd);
 
-int		open_file(t_ppx *ppx);
+int		open_file(char *file, int type);
 int		close_file(t_ppx *ppx);
-int		init_ppx(t_ppx *ppx, int ac, char **av, char **envp);
+int		init_ppx(t_ppx ppx, int ac, char **av, char **envp);
 void	free_ppx(t_ppx *ppx);
 int		exit_ppx(t_ppx *ppx);
 
