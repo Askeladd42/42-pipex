@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:01:46 by plam              #+#    #+#             */
-/*   Updated: 2022/01/20 16:02:19 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/28 00:09:44 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,35 +22,42 @@
 # include <stdio.h>
 
 # define ERR -1
-# define IN 0
-# define OUT 1
+# define W_END 0
+# define R_END 1
+
+# define INFILE 1
+# define OUTFILE 2
 
 typedef struct pipex
 {
 	int		ac;
 	char	**av;
 	char	**envp;
-	int		**pipe;
+	int		pipe[2];
 	int		infile;
 	int		outfile;
 	int		cmd_cnt;
 }				t_ppx;
 
 size_t	ft_strlen(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strdup(const char *s1);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strnstr(const char *s1, const char *s2, size_t n);
+void	ft_putstr_fd(char *s, int fd);
 
-void	init_ppx(t_ppx *ppx, int ac, char **av, char **envp);
+int		open_file(char *file, int type);
+int		init_ppx(t_ppx ppx, int ac, char **av, char **envp);
 void	free_ppx(t_ppx *ppx);
+void	*fr_tab(char **tab);
 
-int		cmd_verification(char *cmd);
-int		cmd_exec(t_ppx *ppx, char *cmd);
+void	arg_err(void);
+void	error(char *s, char *argv);
 
-int		child_process(int f1, char *cmd1);
-int		parent_process(int f2, char *cmd2);
+char	*path_parsing(char *path, char **envp);
+void	cmd_exec(char *av, char **envp);
 
-void	pipex(int f1, int f2, char *cmd1, char *cmd2);
+void	child_process(char **av, char **envp, t_ppx *ppx);
+void	parent_process(char **av, char **envp, t_ppx *ppx);
 
 #endif
