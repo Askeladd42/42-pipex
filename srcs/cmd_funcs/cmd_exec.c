@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 11:36:18 by plam              #+#    #+#             */
-/*   Updated: 2022/01/26 12:05:04 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/27 23:55:23 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 /* temporary function */
 
-int	cmd_exec(t_ppx *ppx, char *cmd, int index)
+void	cmd_exec(char *av, char **envp)
 {
-	pid_t	pid;
+	char	**cmd;
 
-	pipe(ppx->pipe);
-	pid = fork();
-	if (pid == -1)
-		ex_perror(cmd, index, 1, ppx);
-	else if (pid == 0)
+	cmd = ft_split(av, ' ');
+	if (execve(path_parsing(cmd[0], envp), cmd, envp) == -1)
 	{
-		//create the conditions of the child process & execute them
+		fr_tab(cmd);
+		error("command error : ", av);
+	
 	}
-	waitpid(-1);
-	return (pid);
+	fr_tab(cmd);
 }

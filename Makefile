@@ -6,15 +6,16 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/25 17:21:09 by plam             ###   ########.fr        #
+#    Updated: 2022/01/28 00:03:39 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		+=	utils/ft_split.c\
 				utils/ft_strlen.c\
-				utils/ft_strdup.c\
+				utils/ft_strlcpy.c\
 				utils/ft_strjoin.c\
-				utils/ft_strncmp.c
+				utils/ft_strnstr.c\
+				utils/ft_putstr_fd.c
 
 SRCS		+=	parsing/open_close.c\
 				parsing/child_proc.c\
@@ -25,14 +26,9 @@ SRCS		+=	init/init_ppx.c
 
 SRCS		+=	free/free_ppx.c
 
-SRCS		+=	
-
 SRCS		+=	cmd_funcs/cmd_exec.c\
-				cmd_funcs/cmd_verification.c
-
 
 SRCS		+=	errors.c\
-				pipex.c\
 				main.c
 
 MAKE		=	/bin/make
@@ -62,8 +58,6 @@ bonus:			$(NAME_BONUS)
 $(NAME):		$(OBJS)
 				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(NAME_BONUS):	$(OBJS_BONUS)
-				$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS)
 %.o: %.c	
 				$(CC) $(CFLAGS) -c $< -o $@
 

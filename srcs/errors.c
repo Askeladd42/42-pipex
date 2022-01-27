@@ -6,21 +6,22 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:34:03 by plam              #+#    #+#             */
-/*   Updated: 2022/01/26 12:39:52 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/27 23:56:29 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	exit_perror(char *error, int code)
+void	error(char *s, char *av)
 {
-	perror(error);
-	exit(code);
+	ft_putstr_fd(s, 2);
+	ft_putstr_fd(av, 2);
+	ft_putstr_fd("\n", 2);
+	exit(1);
 }
 
-void	ex_perror(char **cmd, char *error, int code, t_ppx *ppx)
+void	arg_err(void)
 {
-	ft_strlcpy(ppx->err_str, cmd, ft_strlen(*cmd) + 1);
-	exit_ppx(ppx);
-	exit_perror(error, code);
+	ft_putstr_fd("arg error", 2);
+	exit(0);
 }

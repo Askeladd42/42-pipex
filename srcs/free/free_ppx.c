@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 11:32:18 by plam              #+#    #+#             */
-/*   Updated: 2022/01/26 12:34:41 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/27 23:51:26 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	*free_tab(char **tab)
+void	*fr_tab(char **tab)
 {
 	int	i;
 
@@ -31,5 +31,6 @@ void	free_ppx(t_ppx *ppx)
 	ppx->cmd_cnt = 0;
 	ppx->infile = 0;
 	ppx->outfile = 0;
-	ppx->pipe = NULL;
+	ppx->pipe[0] = 0;
+	ppx->pipe[1] = 0;
 }
