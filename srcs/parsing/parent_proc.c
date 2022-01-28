@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:47:36 by plam              #+#    #+#             */
-/*   Updated: 2022/01/28 10:59:29 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/28 15:20:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ void	parent_process(char **av, char **envp, t_ppx *ppx)
 	int		fileout;
 
 	fileout = open_file(av[4], OUTFILE);
-	dup2(ppx->pipe[R_END], STDIN_FILENO);
+	if (dup2(ppx->pipe[W_END], STDIN_FILENO) == ERR)
+		perror("dup2 error :");
 	close(ppx->pipe[R_END]);
-	dup2(fileout, STDOUT_FILENO);
-	close(ppx->pipe[W_END]);
+	if (dup2(fileout, STDOUT_FILENO) == ERR)
+		perror("dup2 error :");
+	//close(ppx->pipe[W_END]);
 	cmd_exec(av[3], envp);
 }
