@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/27 23:58:22 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/28 11:04:47 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # define W_END 0
 # define R_END 1
 
-# define INFILE 1
-# define OUTFILE 2
+# define INFILE 2
+# define OUTFILE 3
 
 typedef struct pipex
 {
