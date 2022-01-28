@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:34 by plam              #+#    #+#             */
-/*   Updated: 2022/01/28 11:04:47 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/28 11:44:47 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *s, int fd);
 
 int		open_file(char *file, int type);
-int		init_ppx(t_ppx ppx, int ac, char **av, char **envp);
+int		init_ppx(t_ppx *ppx, int ac, char **av, char **envp);
 void	free_ppx(t_ppx *ppx);
 void	*fr_tab(char **tab);
 
