@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:13:43 by plam              #+#    #+#             */
-/*   Updated: 2022/01/27 23:33:50 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/28 10:55:11 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	open_file(char *file, int type)
 	int	fd;
 
 	fd = 0;
-	if (type == 1)
+	if (type == INFILE)
 		fd = open(file, O_RDONLY, 0777);
-	else if (type == 2)
+	else if (type == OUTFILE)
 		fd = open(file, O_WRONLY | O_CREAT| O_TRUNC, 0777);
 	if (fd == -1)
 		error("Can't open a file", "");

@@ -1,0 +1,9 @@
+total 52
+drwxrwxr-x 3 user42 user42  4096 janv. 24 23:44 bonus
+drwxrwxr-x 2 user42 user42  4096 janv. 27 00:13 headers
+-rw-rw-r-- 1 user42 user42     0 janv. 24 23:44 infile
+-rw-rw-r-- 1 user42 user42  1823 janv. 28 10:40 Makefile
+-rwxrwxr-x 1 user42 user42     0 janv. 28 10:41 outfile
+-rwxrwxr-x 1 user42 user42 32368 janv. 28 10:40 pipex
+-rw-rw-r-- 1 user42 user42    37 janv.  3 10:27 README.md
+drwxrwxr-x 7 user42 user42  4096 janv. 28 10:40 srcs
