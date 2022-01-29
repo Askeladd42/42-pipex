@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:06:01 by plam              #+#    #+#             */
-/*   Updated: 2022/01/29 08:49:57 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/29 09:43:05 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ char	*path_parsing(char *path, char **envp)
 		i++;
 	}
 	fr_tab(path_from_envp);
+	free(my_path);
 	return (NULL);
 }
