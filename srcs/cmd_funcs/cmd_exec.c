@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 11:36:18 by plam              #+#    #+#             */
-/*   Updated: 2022/01/29 08:46:54 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/29 09:02:13 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	cmd_exec(char *av, char **envp, t_ppx *ppx)
 	if (execve(path_parsing(cmd[0], envp), cmd, envp) == -1)
 	{
 		fr_tab(cmd);
-		error("command error : ", av, ppx);
+		error("command error : ", av);
 	}
 	fr_tab(cmd);
 }
