@@ -6,21 +6,22 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 11:36:18 by plam              #+#    #+#             */
-/*   Updated: 2022/01/29 09:45:16 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/30 13:34:28 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-/* temporary function */
-
 void	cmd_exec(char *av, char **envp, t_ppx *ppx)
 {
 	char	**cmd;
+	char	*cmd_path;
 
 	cmd = ft_split(av, ' ');
-	if (execve(path_parsing(cmd[0], envp), cmd, envp) == -1)
+	cmd_path = path_parsing(cmd[0], envp);
+	if (execve(cmd_path, cmd, envp) == -1)
 	{
+		free(cmd_path);
 		fr_tab(cmd);
 		free_ppx(ppx);
 		error("command error : ", av);

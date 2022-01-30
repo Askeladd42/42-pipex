@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:06:01 by plam              #+#    #+#             */
-/*   Updated: 2022/01/29 09:43:05 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/30 13:31:35 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*path_parsing(char *path, char **envp)
 	int		i;
 
 	i = 0;
-	while (ft_strnstr(envp[i], "PATH", 4) == 0)
+	while (ft_strnstr(envp[i], "PATH=", 5) == 0)
 		i++;
 	path_from_envp = ft_split(envp[i] + 5, ':');
 	i = 0;
@@ -34,9 +34,9 @@ char	*path_parsing(char *path, char **envp)
 			fr_tab(path_from_envp);
 			return (my_path);
 		}
+		free(my_path);
 		i++;
 	}
 	fr_tab(path_from_envp);
-	free(my_path);
 	return (NULL);
 }
