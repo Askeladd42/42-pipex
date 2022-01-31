@@ -6,7 +6,7 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/31 16:03:24 by plam             ###   ########.fr        #
+#    Updated: 2022/01/31 17:22:23 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS		+=	cmd_funcs/cmd_exec.c\
 SRCS		+=	errors.c\
 				main.c
 
-SRCS_BONUS	+=	utils/ft_split.c\
+SRCS_BONUS	=	utils/ft_split.c\
 				utils/ft_strlen.c\
 				utils/ft_strlcpy.c\
 				utils/ft_strjoin.c\
