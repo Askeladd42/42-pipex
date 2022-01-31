@@ -6,7 +6,7 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/31 18:25:18 by plam             ###   ########.fr        #
+#    Updated: 2022/01/31 18:31:35 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ $(NAME):		$(OBJS)
 				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(NAME_BONUS):	$(OBJS_BONUS)
-				$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS)
+				$(CC) $(CFLAGS) $(OBJS_BONUS) -o pipex
 
 %.o: %.c	
 				$(CC) $(CFLAGS) -c $< -o $@
@@ -91,7 +91,7 @@ clean:
 				$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean:			clean
-				$(RM) $(NAME) $(NAME_BONUS)
+				$(RM) $(NAME)
 
 re:				fclean all
 
