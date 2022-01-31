@@ -6,7 +6,7 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/31 17:28:26 by plam             ###   ########.fr        #
+#    Updated: 2022/01/31 18:25:18 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ HEADERS		+=	headers/
 
 NAME		=	pipex
 
-NAME_BONUS	=	pipex
+NAME_BONUS	=	pipex_bonus
 
 RM			=	/bin/rm -f
 
@@ -91,7 +91,7 @@ clean:
 				$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean:			clean
-				$(RM) $(NAME)
+				$(RM) $(NAME) $(NAME_BONUS)
 
 re:				fclean all
 
