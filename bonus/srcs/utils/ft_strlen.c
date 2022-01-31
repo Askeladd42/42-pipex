@@ -6,11 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:43:09 by plam              #+#    #+#             */
-/*   Updated: 2022/01/26 12:40:20 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/31 15:51:50 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {

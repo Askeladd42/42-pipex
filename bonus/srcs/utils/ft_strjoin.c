@@ -6,11 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:45:01 by plam              #+#    #+#             */
-/*   Updated: 2022/01/14 12:45:36 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/31 15:51:39 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

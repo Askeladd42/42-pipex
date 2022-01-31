@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   open_close_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 09:33:09 by plam              #+#    #+#             */
-/*   Updated: 2022/01/29 09:46:29 by plam             ###   ########.fr       */
+/*   Created: 2022/01/24 13:13:43 by plam              #+#    #+#             */
+/*   Updated: 2022/01/31 15:50:40 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-int	main(int ac, char **av, char **envp)
+int	close_file(t_ppx *ppx)
 {
-	pid_t	pid1;
-	t_ppx	ppx;
-
-	ppx.ac = ac;
-	if (ac == 5)
-	{
-		init_ppx(&ppx, ac, av, envp);
-		if (pipe(ppx.pipe) == -1)
-			perror("pipe error :");
-		pid1 = fork();
-		if (pid1 == -1)
-			perror("fork error :");
-		if (pid1 == 0)
-			child_process(av, envp, &ppx);
-		waitpid(pid1, NULL, 0);
-		parent_process(av, envp, &ppx);
-	}
-	else
-		arg_err();
-	free_ppx(&ppx);
+	close(ppx->infile);
+	close(ppx->outfile);
 	return (0);
+}
+
+int	exit_ppx(t_ppx *ppx)
+{
+	close_file(ppx);
+	return (0);
+}
+
+int	open_file(char *file, int type)
+{
+	int	fd;
+
+	fd = 0;
+	if (type == INFILE)
+		fd = open(file, O_RDONLY, 0777);
+	else if (type == OUTFILE)
+		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	if (fd == -1)
+		error("Can't open a file", "");
+	return (fd);
 }

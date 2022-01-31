@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parent_proc.c                                      :+:      :+:    :+:   */
+/*   cmd_exec_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 14:47:36 by plam              #+#    #+#             */
-/*   Updated: 2022/01/29 09:02:50 by plam             ###   ########.fr       */
+/*   Created: 2022/01/20 11:36:18 by plam              #+#    #+#             */
+/*   Updated: 2022/01/31 15:50:03 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-void	parent_process(char **av, char **envp, t_ppx *ppx)
+void	cmd_exec(char *av, char **envp, t_ppx *ppx)
 {
-	int		fileout;
+	char	**cmd;
+	char	*cmd_path;
 
-	fileout = open_file(av[4], OUTFILE);
-	if (dup2(ppx->pipe[W_END], STDIN_FILENO) == ERR)
-		perror("dup2 error :");
-	close(ppx->pipe[R_END]);
-	if (dup2(fileout, STDOUT_FILENO) == ERR)
-		perror("dup2 error :");
-	cmd_exec(av[3], envp, ppx);
+	cmd = ft_split(av, ' ');
+	cmd_path = path_parsing(cmd[0], envp);
+	if (cmd_path == NULL)
+		execve(cmd[0], cmd, envp);
+	else
+		execve(cmd_path, cmd, envp);
+	if (cmd_path)
+		free(cmd_path);
+	fr_tab(cmd);
+	free_ppx(ppx);
+	error("command error : ", av);
 }

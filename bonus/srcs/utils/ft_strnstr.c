@@ -6,11 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:48:30 by plam              #+#    #+#             */
-/*   Updated: 2022/01/27 22:52:23 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/31 15:51:56 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {

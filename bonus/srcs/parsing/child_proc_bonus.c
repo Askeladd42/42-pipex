@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_ppx.c                                         :+:      :+:    :+:   */
+/*   child_proc_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 11:32:18 by plam              #+#    #+#             */
-/*   Updated: 2022/01/27 23:51:26 by plam             ###   ########.fr       */
+/*   Created: 2022/01/14 14:47:52 by plam              #+#    #+#             */
+/*   Updated: 2022/01/31 15:50:34 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-void	*fr_tab(char **tab)
+void	child_process(char **av, char **envp, t_ppx *ppx)
 {
-	int	i;
+	int		filein;
 
-	i = 0;
-	while (tab[i])
-		free(tab[i++]);
-	free(tab);
-	return (NULL);
-}
-
-void	free_ppx(t_ppx *ppx)
-{
-	ppx->ac = 0;
-	ppx->av = 0;
-	ppx->envp = NULL;
-	ppx->cmd_cnt = 0;
-	ppx->infile = 0;
-	ppx->outfile = 0;
-	ppx->pipe[0] = 0;
-	ppx->pipe[1] = 0;
+	filein = open_file(av[1], INFILE);
+	if (dup2(ppx->pipe[R_END], STDOUT_FILENO) == ERR)
+		perror("dup2 error :");
+	close(ppx->pipe[W_END]);
+	if (dup2(filein, STDIN_FILENO) == ERR)
+		perror("dup2 error :");
+	cmd_exec(av[2], envp, ppx);
 }

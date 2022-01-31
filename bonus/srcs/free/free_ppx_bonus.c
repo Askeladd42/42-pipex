@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_exec.c                                         :+:      :+:    :+:   */
+/*   free_ppx_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 11:36:18 by plam              #+#    #+#             */
-/*   Updated: 2022/01/30 17:24:31 by plam             ###   ########.fr       */
+/*   Created: 2022/01/20 11:32:18 by plam              #+#    #+#             */
+/*   Updated: 2022/01/31 15:50:12 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-void	cmd_exec(char *av, char **envp, t_ppx *ppx)
+void	*fr_tab(char **tab)
 {
-	char	**cmd;
-	char	*cmd_path;
+	int	i;
 
-	cmd = ft_split(av, ' ');
-	cmd_path = path_parsing(cmd[0], envp);
-	if (cmd_path == NULL)
-		execve(cmd[0], cmd, envp);
-	else
-		execve(cmd_path, cmd, envp);
-	if (cmd_path)
-		free(cmd_path);
-	fr_tab(cmd);
-	free_ppx(ppx);
-	error("command error : ", av);
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
+	return (NULL);
+}
+
+void	free_ppx(t_ppx *ppx)
+{
+	ppx->ac = 0;
+	ppx->av = 0;
+	ppx->envp = NULL;
+	ppx->cmd_cnt = 0;
+	ppx->infile = 0;
+	ppx->outfile = 0;
+	ppx->pipe[0] = 0;
+	ppx->pipe[1] = 0;
 }
