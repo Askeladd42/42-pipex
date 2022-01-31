@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:01:46 by plam              #+#    #+#             */
-/*   Updated: 2022/01/28 00:09:44 by plam             ###   ########.fr       */
+/*   Updated: 2022/01/31 14:39:37 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # define W_END 0
 # define R_END 1
 
-# define INFILE 1
-# define OUTFILE 2
+# define INFILE 2
+# define OUTFILE 3
 
 typedef struct pipex
 {
@@ -47,7 +47,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *s, int fd);
 
 int		open_file(char *file, int type);
-int		init_ppx(t_ppx ppx, int ac, char **av, char **envp);
+int		init_ppx(t_ppx *ppx, int ac, char **av, char **envp);
 void	free_ppx(t_ppx *ppx);
 void	*fr_tab(char **tab);
 
@@ -55,7 +55,7 @@ void	arg_err(void);
 void	error(char *s, char *argv);
 
 char	*path_parsing(char *path, char **envp);
-void	cmd_exec(char *av, char **envp);
+void	cmd_exec(char *av, char **envp, t_ppx *ppx);
 
 void	child_process(char **av, char **envp, t_ppx *ppx);
 void	parent_process(char **av, char **envp, t_ppx *ppx);
