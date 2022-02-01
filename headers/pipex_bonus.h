@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:01:46 by plam              #+#    #+#             */
-/*   Updated: 2022/01/31 14:39:37 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/02 00:11:33 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,11 @@ void	free_ppx(t_ppx *ppx);
 void	*fr_tab(char **tab);
 
 void	arg_err(void);
-void	error(char *s, char *argv);
+void	error(char *s, char *av);
 
 char	*path_parsing(char *path, char **envp);
 void	cmd_exec(char *av, char **envp, t_ppx *ppx);
 
-void	child_process(char **av, char **envp, t_ppx *ppx);
-void	parent_process(char **av, char **envp, t_ppx *ppx);
+void	child_process(char *av, char **envp, t_ppx *ppx);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 09:31:35 by plam              #+#    #+#              #
-#    Updated: 2022/01/31 18:31:35 by plam             ###   ########.fr        #
+#    Updated: 2022/02/02 00:11:53 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ SRCS_BONUS	=	utils/ft_split.c\
 
 SRCS_BONUS	+=	parsing/open_close_bonus.c\
 				parsing/child_proc_bonus.c\
-				parsing/parent_proc_bonus.c\
 				parsing/path_parsing_bonus.c
 
 SRCS_BONUS	+=	init/init_ppx_bonus.c
