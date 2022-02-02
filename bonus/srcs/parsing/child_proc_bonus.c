@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:47:52 by plam              #+#    #+#             */
-/*   Updated: 2022/02/02 16:06:04 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/02 16:17:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ void	child_process(char *av, char **envp, t_ppx *ppx)
 		perror("Fork error ");
 	if (pid == 0)
 	{
-		if (dup2(ppx->pipe[1], STDOUT_FILENO) == ERR)
+		if (dup2(ppx->pipe[R_END], STDOUT_FILENO) == ERR)
 			perror("dup2 error ");
 		close(ppx->pipe[R_END]);
 		cmd_exec(av, envp, ppx);
 	}
 	else
 	{
-		if (dup2(W_END, STDIN_FILENO) == ERR)
+		if (dup2(ppx->pipe[W_END], STDIN_FILENO) == ERR)
 			perror("dup2 error ");
-		close(ppx->pipe[W_END]);
+		close(ppx->pipe[R_END]);
 		waitpid(pid, NULL, 0);
 	}
 }
