@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:09 by plam              #+#    #+#             */
-/*   Updated: 2022/01/31 18:02:48 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/02 13:38:33 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av, char **envp)
 		while (ppx.cmd_cnt != 1)
 		{
 			child_process(av[i++], envp, &ppx);
+			ppx.cmd_cnt--;
 		}
 		dup2(outfile, STDOUT_FILENO);
 		cmd_exec(av[ac - 2], envp, &ppx);
