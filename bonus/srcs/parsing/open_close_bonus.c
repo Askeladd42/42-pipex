@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:13:43 by plam              #+#    #+#             */
-/*   Updated: 2022/01/31 15:50:40 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/02 18:12:58 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,18 @@ int	exit_ppx(t_ppx *ppx)
 int	open_file(char *file, int type)
 {
 	int	fd;
+	int	time;
 
 	fd = 0;
+	time = 2;
 	if (type == INFILE)
 		fd = open(file, O_RDONLY, 0777);
 	else if (type == OUTFILE)
 		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (fd == -1)
-		error("Can't open a file", "");
+	{
+		perror("Can't open a file ");
+		exit(2);
+	}
 	return (fd);
 }
