@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:47:52 by plam              #+#    #+#             */
-/*   Updated: 2022/02/02 16:46:28 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/02 18:29:48 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ void	child_process(char *av, char **envp, t_ppx *ppx)
 		perror("Pipe error ");
 	pid = fork();
 	if (pid == -1)
+	{
 		perror("Fork error ");
+		close(ppx->pipe[R_END]);
+		exit(2);
+	}
 	if (pid == 0)
 	{
 		if (dup2(ppx->pipe[R_END], STDOUT_FILENO) == ERR)
