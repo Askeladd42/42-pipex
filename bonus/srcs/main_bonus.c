@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:09 by plam              #+#    #+#             */
-/*   Updated: 2022/02/02 13:38:33 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/02 15:22:43 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av, char **envp)
 	{
 		init_ppx(&ppx, ac, av, envp);
 		i = 2;
-		infile = open(ppx.av[1], 2);
+		infile = open_file(ppx.av[1], 2);
 		outfile = open_file(ppx.av[ac - 1], 1);
 		dup2(infile, STDIN_FILENO);
 		while (ppx.cmd_cnt != 1)
