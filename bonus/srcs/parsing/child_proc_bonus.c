@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:47:52 by plam              #+#    #+#             */
-/*   Updated: 2022/02/02 16:17:06 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/02 16:46:28 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	child_process(char *av, char **envp, t_ppx *ppx)
 			perror("dup2 error ");
 		close(ppx->pipe[R_END]);
 		waitpid(pid, NULL, 0);
+		close(ppx->pipe[W_END]);
 	}
 }
