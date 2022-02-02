@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:34:03 by plam              #+#    #+#             */
-/*   Updated: 2022/02/02 19:23:25 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/02 19:28:11 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	fork_err(t_ppx	*ppx)
 {
 	perror("Fork error ");
 	close(ppx->pipe[R_END]);
-	exit(2);
+	exit(1);
 }
 
 void	error(char *s, char *av)
