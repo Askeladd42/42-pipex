@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:01:46 by plam              #+#    #+#             */
-/*   Updated: 2022/02/02 17:43:20 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/02 19:21:14 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	free_ppx(t_ppx *ppx);
 void	*fr_tab(char **tab);
 
 void	arg_err(void);
+void	fork_err(t_ppx	*ppx);
 void	error(char *s, char *av);
 
 char	*path_parsing(char *path, char **envp);
