@@ -6,11 +6,20 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:47:52 by plam              #+#    #+#             */
-/*   Updated: 2022/02/03 10:40:00 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/03 10:49:41 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
+
+void	parent_process(t_ppx *ppx, pid_t pid)
+{
+	if (dup2(ppx->pipe[W_END], STDIN_FILENO) == ERR)
+		perror("dup2 error ");
+	close(ppx->pipe[R_END]);
+	waitpid(pid, NULL, 0);
+	close(ppx->pipe[W_END]);
+}
 
 void	child_process(char *av, char **envp, t_ppx *ppx, int can_exec)
 {
@@ -33,11 +42,5 @@ void	child_process(char *av, char **envp, t_ppx *ppx, int can_exec)
 		exit_ppx(ppx);
 	}
 	else
-	{
-		if (dup2(ppx->pipe[W_END], STDIN_FILENO) == ERR)
-			perror("dup2 error ");
-		close(ppx->pipe[R_END]);
-		waitpid(pid, NULL, 0);
-		close(ppx->pipe[W_END]);
-	}
+		parent_process(ppx, pid);
 }
