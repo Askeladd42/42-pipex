@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:01:46 by plam              #+#    #+#             */
-/*   Updated: 2022/02/02 19:21:14 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/03 10:39:45 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int		open_file(char *file, int type);
 int		init_ppx(t_ppx *ppx, int ac, char **av, char **envp);
 void	free_ppx(t_ppx *ppx);
 void	*fr_tab(char **tab);
+int		close_pipe(t_ppx *ppx);
+int		exit_ppx(t_ppx *ppx);
 
 void	arg_err(void);
 void	fork_err(t_ppx	*ppx);
@@ -58,6 +60,6 @@ void	error(char *s, char *av);
 char	*path_parsing(char *path, char **envp);
 void	cmd_exec(char *av, char **envp, t_ppx *ppx);
 
-void	child_process(char *av, char **envp, t_ppx *ppx);
+void	child_process(char *av, char **envp, t_ppx *ppx, int can_exec);
 
 #endif

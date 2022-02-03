@@ -6,23 +6,24 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:13:43 by plam              #+#    #+#             */
-/*   Updated: 2022/02/02 18:30:16 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/03 10:39:38 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-int	close_file(t_ppx *ppx)
+int	close_pipe(t_ppx *ppx)
 {
-	close(ppx->infile);
-	close(ppx->outfile);
+	close(ppx->pipe[W_END]);
+	close(ppx->pipe[R_END]);
+	free_ppx(ppx);
 	return (0);
 }
 
 int	exit_ppx(t_ppx *ppx)
 {
-	close_file(ppx);
-	return (0);
+	close_pipe(ppx);
+	exit(errno);
 }
 
 int	open_file(char *file, int type)
