@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:47:36 by plam              #+#    #+#             */
-/*   Updated: 2022/02/04 19:45:06 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/04 20:18:12 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,6 @@ void	parent_process(char **av, char **envp, t_ppx *ppx)
 		perror("dup2 error :");
 	if (av[3][0] != '\0' && av[3][0] != ' ')
 		cmd_exec(av[3], envp, ppx);
+	else
+		error("command not found : ", av[3]);
 }

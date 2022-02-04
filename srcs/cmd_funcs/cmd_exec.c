@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 11:36:18 by plam              #+#    #+#             */
-/*   Updated: 2022/02/04 19:44:13 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/04 20:12:46 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,11 @@ void	cmd_exec(char *av, char **envp, t_ppx *ppx)
 	}
 	cmd = ft_split(av, ' ');
 	cmd_path = path_parsing(cmd[0], envp);
-	if (cmd_path == NULL)
-	{
-		if (access(cmd[0], F_OK) == 0)
-			perror("command not found");
-	}
-	else
+	if (access(cmd_path, F_OK) == 0 && cmd_path != NULL)
 		execve(cmd_path, cmd, envp);
 	if (cmd_path)
 		free(cmd_path);
 	fr_tab(cmd);
 	free_ppx(ppx);
-	error("command error : ", av);
+	error("command not found : ", av);
 }

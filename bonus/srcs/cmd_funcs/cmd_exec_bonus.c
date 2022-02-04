@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 11:36:18 by plam              #+#    #+#             */
-/*   Updated: 2022/02/04 19:26:47 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/04 20:12:13 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void	cmd_exec(char *av, char **envp, t_ppx *ppx)
 		free(cmd_path);
 	fr_tab(cmd);
 	free_ppx(ppx);
-	error("command error : ", av);
+	error("command not found : ", av);
 }
