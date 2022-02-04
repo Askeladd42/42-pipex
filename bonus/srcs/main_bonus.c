@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:09 by plam              #+#    #+#             */
-/*   Updated: 2022/02/03 10:34:34 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/04 12:11:17 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	main(int ac, char **av, char **envp)
 			infile_open = 1;
 		}
 		dup2(ppx.outfile, STDOUT_FILENO);
-		cmd_exec(av[ac - 2], envp, &ppx);
+		if (av[ac - 2][0] != '\0')
+			cmd_exec(av[ac - 2], envp, &ppx);
 	}
 	else
 		arg_err();
