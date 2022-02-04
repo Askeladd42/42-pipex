@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 11:36:18 by plam              #+#    #+#             */
-/*   Updated: 2022/02/04 19:06:43 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/04 19:22:37 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	cmd_exec(char *av, char **envp, t_ppx *ppx)
 	cmd_path = path_parsing(cmd[0], envp);
 	if (cmd_path == NULL)
 	{
-		access(cmd[0], X_OK);
+		access(cmd[0], F_OK);
 		perror("command not found");
 	}
 	else
