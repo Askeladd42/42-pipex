@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:13:43 by plam              #+#    #+#             */
-/*   Updated: 2022/02/03 10:39:38 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/05 15:09:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int	open_file(char *file, int type)
 	else if (type == OUTFILE)
 		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (fd == -1)
-		perror("Can't open a file ");
+		perror(file);
 	return (fd);
 }
