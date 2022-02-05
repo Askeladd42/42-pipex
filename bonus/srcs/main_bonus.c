@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:33:09 by plam              #+#    #+#             */
-/*   Updated: 2022/02/04 20:24:08 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/05 01:07:30 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ int	init_open(int ac, t_ppx *ppx)
 
 void	last_cmd(t_ppx ppx, int ac, char **av, char **envp)
 {
-	if (av[ac - 2][0] != '\0' && av[ac - 2][0] != ' ')
-		cmd_exec(av[ac - 2], envp, &ppx);
-	else
-		error("command not found : ", av[ac - 2]);
+	cmd_exec(av[ac - 2], envp, &ppx);
 }
 
 int	main(int ac, char **av, char **envp)
