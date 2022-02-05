@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:13:43 by plam              #+#    #+#             */
-/*   Updated: 2022/02/05 15:11:08 by plam             ###   ########.fr       */
+/*   Updated: 2022/02/05 15:18:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	close_pipe(t_ppx *ppx)
 	return (0);
 }
 
-int	exit_ppx(t_ppx *ppx, int errno)
+int	exit_ppx(t_ppx *ppx)
 {
 	close_pipe(ppx);
 	exit(errno);
